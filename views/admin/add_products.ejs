@@ -1,0 +1,136 @@
+<%- include('layout/adminheader.ejs') %>
+
+<main class="h-full pb-16 overflow-y-auto">
+  <div class="container px-6 mt-8 mx-auto grid">
+    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <!-- General elements -->
+      <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+        Add Product
+      </h4>
+
+      <div class="px-4 align-items-center">
+        <div class="card my-4">
+          <div class="card-body">
+            <form
+              action="/admin/addproduct"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <div class="mb-3 row">
+                <label for="html5-text-input" class="col-md-2 col-form-label"
+                  >Product Name</label
+                >
+                <div class="col-md-10">
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="html5-text-input"
+                    name="productname"
+                  />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-email-input" class="col-md-2 col-form-label"
+                  >Category</label
+                >
+                <div class="col-md-10">
+                  <select name="category" id="defaultSelect" class="form-select">
+                    <% for (var i=0;i<category.length;i++){ %> 
+                    <option value="<%=category[i]._id %>" ><%=category[i].category %></option>
+                    <% } %> 
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-search-input" class="col-md-2 col-form-label"
+                  >Price</label
+                >
+                <div class="col-md-10">
+                  <input
+                    class="form-control"
+                    type="search"
+                    id="html5-search-input"
+                    name="price"
+                  />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-email-input" class="col-md-2 col-form-label"
+                  >Size</label
+                >
+                <div class="col-md-10">
+                  <select name="size" id="defaultSelect" class="form-select">
+                    <option>size</option>
+                    <option value="1">SMALL</option>
+                    <option value="2">MEDIUM</option>
+                    <option value="3">LARGE</option>
+                    <option value="3">E-LARGE</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-email-input" class="col-md-2 col-form-label"
+                  >Color</label
+                >
+                <div class="col-md-10">
+                  <select name="color" id="defaultSelect" class="form-select">
+                    <option value="1">Black</option>
+                    <option value="2">Blue</option>
+                    <option value="3">White</option>
+                    <option value="3">Yellow</option>
+                    <option value="3">Green</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-search-input" class="col-md-2 col-form-label"
+                  >Quantity</label
+                >
+                <div class="col-md-10">
+                  <input
+                    class="form-control"
+                    type="search"
+                    id="html5-search-input"
+                    name="quantity"
+                  />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-search-input" class="col-md-2 col-form-label"
+                  >Image</label
+                >
+                <div class="col-md-10">
+                  <input
+                    type="file"
+                    name="Image"
+                    class="form-control"
+                    multiple
+                  />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-search-input" class="col-md-2 col-form-label"
+                  >Description</label
+                >
+                <div class="col-md-10">
+                  <input
+                    class="form-control"
+                    type="search"
+                    id="html5-search-input"
+                    name="description"
+                  />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <button class="btn btn-primary d-grid w-100" type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include('layout/admin-footer.ejs') %>
